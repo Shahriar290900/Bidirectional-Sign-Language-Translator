@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supported Signs and Words</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; margin: 0; padding: 20px; text-align: center; color: #1a202c; }
+        .container { max-width: 1200px; margin: auto; }
+        .back-btn { display: inline-block; margin-bottom: 20px; padding: 10px 20px; background: #4a90e2; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; }
+
+        .section-title { font-size: 1.8em; margin: 40px 0 20px; border-bottom: 2px solid #cbd5e0; padding-bottom: 10px; }
+
+        /* Section 1: Images Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; }
+        .card { background: white; border-radius: 16px; padding: 20px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; position: relative; }
+        .card img { width: 100%; max-width: 400px; height: auto; border-radius: 12px; display: block; margin: auto; background: #f7fafc; }
+        .card p { margin: 15px 0 0; font-size: 1.3em; font-weight: 700; color: #2d3748; }
+        .card .eng { font-size: 0.9em; color: #718096; font-weight: normal; margin-top: 5px; }
+
+        .badge { position: absolute; top: 14px; right: 14px; font-size: 0.7em; font-weight: 600;
+                 padding: 4px 10px; border-radius: 999px; background: #edf2f7; color: #4a5568;
+                 text-transform: uppercase; letter-spacing: 0.03em; }
+
+        /* Section 2: Words List Grid */
+        .words-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; margin-top: 20px; }
+        .word-card { background: white; border-radius: 8px; padding: 15px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+        .word-card .variants { display: block; font-size: 0.65em; font-weight: normal; color: #718096; margin-top: 6px; }
+
+        /* Skeletons shown until signs.json and its images arrive */
+        .skeleton { position: relative; overflow: hidden; background: #e2e8f0; border-radius: 12px; }
+        .skeleton::after {
+            content: ''; position: absolute; inset: 0; transform: translateX(-100%);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
+            animation: shimmer 1.4s infinite;
+        }
+        @keyframes shimmer { 100% { transform: translateX(100%); } }
+        .skeleton-img { width: 100%; aspect-ratio: 1/1; }
+        .skeleton-line { height: 18px; margin: 15px auto 0; width: 60%; border-radius: 6px; }
+        @media (prefers-reduced-motion: reduce) { .skeleton::after { animation: none; } }
+
+        .load-error { color: #c53030; font-weight: 600; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn" data-i18n="dict.back">← Back to App</a>
+
+        <h2 class="section-title" data-i18n="dict.section1">Section 1: Images of Signs</h2>
+        <p id="signsSummary" data-i18n="dict.loading">Loading…</p>
+        <div class="grid" id="signsGrid"></div>
+
+        <h2 class="section-title" data-i18n="dict.section2">Section 2: Recognised Words</h2>
+        <p id="wordsSummary"></p>
+        <div class="words-grid" id="wordsGrid"></div>
+
+        <p class="load-error" id="loadError" hidden data-i18n="dict.loadError"></p>
+    </div>
+
+    <script src="js/i18n.js"></script>
+    <script>
+        I18n.setLanguage(I18n.restore());
+        showSkeletons(9);
+
+        fetch('./data/signs.json')
+            .then(resp => {
+                if (!resp.ok) throw new Error(resp.status);
+                return resp.json();
+            })
+            .then(({ signs }) => render(signs))
+            .catch(() => {
+                document.getElementById('signsGrid').innerHTML = '';
+                document.getElementById('signsSummary').textContent = '';
+                document.getElementById('loadError').hidden = false;
+            });
+
+        function showSkeletons(count) {
+            const grid = document.getElementById('signsGrid');
+            for (let i = 0; i < count; i++) {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = '<div class="skeleton skeleton-img"></div><div class="skeleton skeleton-line"></div>';
+                grid.appendChild(card);
+            }
+        }
+
+        function render(signs) {
+            const cameraCount = signs.filter(s => s.classIndex !== null).length;
+            document.getElementById('signsSummary').textContent =
+                I18n.t('dict.signsTotal', { n: signs.length, c: cameraCount });
+
+            const grid = document.getElementById('signsGrid');
+            grid.innerHTML = '';
+            for (const sign of signs) {
+                const card = document.createElement('div');
+                card.className = 'card';
+
+                const img = document.createElement('img');
+                img.src = `avatars/${sign.avatar}`;
+                img.alt = sign.bn;
+                img.loading = 'lazy';
+                card.appendChild(img);
+
+                if (sign.avatarKind === 'photo') {
+                    const badge = document.createElement('div');
+                    badge.className = 'badge';
+                    badge.textContent = I18n.t('dict.referencePhoto');
+                    card.appendChild(badge);
+                }
+
+                const bn = document.createElement('p');
+                bn.textContent = sign.bn;
+                card.appendChild(bn);
+
+                const en = document.createElement('div');
+                en.className = 'eng';
+                en.textContent = sign.en;
+                card.appendChild(en);
+
+                grid.appendChild(card);
+            }
+
+            const totalVariants = signs.reduce((sum, s) => sum + s.variants.length, 0);
+            document.getElementById('wordsSummary').textContent =
+                I18n.t('dict.wordsTotal', { n: signs.length, v: totalVariants });
+
+            const wordsGrid = document.getElementById('wordsGrid');
+            for (const sign of signs) {
+                const card = document.createElement('div');
+                card.className = 'word-card';
+                card.textContent = sign.bn;
+                if (sign.variants.length) {
+                    const variants = document.createElement('span');
+                    variants.className = 'variants';
+                    variants.textContent = I18n.t('dict.forms', { n: sign.variants.length });
+                    card.appendChild(variants);
+                }
+                wordsGrid.appendChild(card);
+            }
+        }
+    </script>
+</body>
+</html>

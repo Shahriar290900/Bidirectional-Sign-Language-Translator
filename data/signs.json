@@ -1,0 +1,1040 @@
+{
+  "signs": [
+    {
+      "slug": "wait",
+      "bn": "অপেক্ষা করো",
+      "en": "Wait",
+      "classIndex": 0,
+      "avatar": "wait.webp",
+      "hasAudio": true,
+      "variants": [
+        "অপেক্ষা",
+        "অপেক্ষা কর",
+        "অপেক্ষা করছি",
+        "অপেক্ষা করবে",
+        "অপেক্ষা করুন",
+        "অপেক্ষাকর",
+        "অপেক্ষাকরো",
+        "অপেক্ষায়",
+        "একটু দাঁড়াও",
+        "দাঁড়ান একটু"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "office",
+      "bn": "অফিস",
+      "en": "Office",
+      "classIndex": 1,
+      "avatar": "office.webp",
+      "hasAudio": true,
+      "variants": [
+        "অফিসগুলো",
+        "অফিসটা",
+        "অফিসে",
+        "অফিসের",
+        "কর্মস্থল",
+        "দপ্তরে",
+        "দফতর"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "law",
+      "bn": "আইন",
+      "en": "Law",
+      "classIndex": 2,
+      "avatar": "law.webp",
+      "hasAudio": true,
+      "variants": [
+        "আইনকানুন",
+        "আইনগত",
+        "আইনগুলো",
+        "আইনে",
+        "আইনের",
+        "নিয়ম",
+        "নিয়মকানুন"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "finger",
+      "bn": "আঙুল",
+      "en": "Finger",
+      "classIndex": 3,
+      "avatar": "finger.webp",
+      "hasAudio": true,
+      "variants": [
+        "আঙুলগুলো",
+        "আঙুলে",
+        "আঙুলের"
+      ],
+      "avatarKind": "photo"
+    },
+    {
+      "slug": "today",
+      "bn": "আজ",
+      "en": "Today",
+      "classIndex": 4,
+      "avatar": "today.webp",
+      "hasAudio": true,
+      "variants": [
+        "আজকে",
+        "আজকের"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "eight",
+      "bn": "আট",
+      "en": "Eight",
+      "classIndex": 5,
+      "avatar": "eight.webp",
+      "hasAudio": true,
+      "variants": [
+        "আটটা",
+        "আটটি",
+        "আটে",
+        "আটের"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "ginger",
+      "bn": "আদা",
+      "en": "Ginger",
+      "classIndex": 6,
+      "avatar": "ginger.webp",
+      "hasAudio": true,
+      "variants": [
+        "আদায়",
+        "আদার"
+      ],
+      "avatarKind": "photo"
+    },
+    {
+      "slug": "my",
+      "bn": "আমার",
+      "en": "My",
+      "classIndex": 7,
+      "avatar": "my.webp",
+      "hasAudio": true,
+      "variants": [
+        "আমাদিগের",
+        "আমারগুলো",
+        "আমারটা",
+        "আমারে",
+        "মোর"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "i-me",
+      "bn": "আমি",
+      "en": "I (Me)",
+      "classIndex": 8,
+      "avatar": "my.webp",
+      "hasAudio": true,
+      "variants": [
+        "আমাকে",
+        "আমায়"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "mirror",
+      "bn": "আয়না",
+      "en": "Mirror",
+      "classIndex": 9,
+      "avatar": "mirror.webp",
+      "hasAudio": true,
+      "variants": [
+        "আয়নাগুলো",
+        "আয়নায়",
+        "আয়নার"
+      ],
+      "avatarKind": "photo"
+    },
+    {
+      "slug": "instagram",
+      "bn": "ইনস্টাগ্রাম",
+      "en": "Instagram",
+      "classIndex": 10,
+      "avatar": "instagram.webp",
+      "hasAudio": true,
+      "variants": [
+        "ইনস্টাগ্রামে",
+        "ইনস্টাগ্রামের"
+      ],
+      "avatarKind": "photo"
+    },
+    {
+      "slug": "one",
+      "bn": "এক",
+      "en": "One",
+      "classIndex": 11,
+      "avatar": "one.webp",
+      "hasAudio": true,
+      "variants": [
+        "একে",
+        "একের"
+      ],
+      "avatarKind": "photo"
+    },
+    {
+      "slug": "now",
+      "bn": "এখন",
+      "en": "Now",
+      "classIndex": 12,
+      "avatar": "now.webp",
+      "hasAudio": true,
+      "variants": [
+        "এইমাত্র",
+        "এক্ষুনি",
+        "এখনই",
+        "এখনকার",
+        "বর্তমানে"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "this",
+      "bn": "এটি",
+      "en": "This",
+      "classIndex": 13,
+      "avatar": "this.webp",
+      "hasAudio": true,
+      "variants": [
+        "ইহা",
+        "এইটা",
+        "এইটি",
+        "এটা",
+        "এটিকে",
+        "এটির"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "that",
+      "bn": "ওটা(সেটা)",
+      "en": "That",
+      "classIndex": 14,
+      "avatar": "that.webp",
+      "hasAudio": true,
+      "variants": [
+        "উহা",
+        "ঐটা",
+        "ওইটা",
+        "ওটা",
+        "ওটাকে",
+        "ওটার",
+        "সেইটা",
+        "সেটা",
+        "সেটাকে",
+        "সেটার",
+        "সেটি"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "wi-fi",
+      "bn": "ওয়াই-ফাই",
+      "en": "Wi-Fi",
+      "classIndex": 15,
+      "avatar": "wi-fi.webp",
+      "hasAudio": true,
+      "variants": [
+        "wifi",
+        "ইন্টারনেট",
+        "ওয়াই ফাই",
+        "ওয়াই-ফাইতে",
+        "ওয়াই-ফাইয়ের",
+        "ওয়াইফাই",
+        "নেট"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "when",
+      "bn": "কখন",
+      "en": "When",
+      "classIndex": 16,
+      "avatar": "when.webp",
+      "hasAudio": true,
+      "variants": [
+        "কখনও",
+        "কখনকার",
+        "কখনো",
+        "কখনোই",
+        "কবে",
+        "কোন্ সময়"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "employee",
+      "bn": "কর্মচারী",
+      "en": "Employee",
+      "classIndex": 17,
+      "avatar": "employee.webp",
+      "hasAudio": true,
+      "variants": [
+        "কর্মচারীকে",
+        "কর্মচারীদের",
+        "কর্মচারীরা"
+      ],
+      "avatarKind": "photo"
+    },
+    {
+      "slug": "shoulder",
+      "bn": "কাঁধ",
+      "en": "Shoulder",
+      "classIndex": 18,
+      "avatar": "shoulder.webp",
+      "hasAudio": true,
+      "variants": [
+        "কাঁধগুলো",
+        "কাঁধটা",
+        "কাঁধে",
+        "কাঁধের",
+        "স্কন্ধ"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "work",
+      "bn": "কাজ",
+      "en": "Work",
+      "classIndex": 19,
+      "avatar": "work.webp",
+      "hasAudio": true,
+      "variants": [
+        "কর্ম",
+        "কাজকর্ম",
+        "কাজগুলো",
+        "কাজটা",
+        "কাজে",
+        "কাজের",
+        "ডিউটি"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "wood",
+      "bn": "কাঠ",
+      "en": "Wood",
+      "classIndex": 20,
+      "avatar": "wood.webp",
+      "hasAudio": true,
+      "variants": [
+        "কাঠগুলো",
+        "কাঠে",
+        "কাঠের",
+        "কাষ্ঠ"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "ear",
+      "bn": "কান",
+      "en": "Ear",
+      "classIndex": 21,
+      "avatar": "ear.webp",
+      "hasAudio": true,
+      "variants": [
+        "কানগুলো",
+        "কানে",
+        "কানের"
+      ],
+      "avatarKind": "photo"
+    },
+    {
+      "slug": "what",
+      "bn": "কী",
+      "en": "What",
+      "classIndex": 22,
+      "avatar": "what.webp",
+      "hasAudio": true,
+      "variants": [
+        "কীসের"
+      ],
+      "avatarKind": "photo"
+    },
+    {
+      "slug": "who",
+      "bn": "কে",
+      "en": "Who",
+      "classIndex": 23,
+      "avatar": "who.webp",
+      "hasAudio": true,
+      "variants": [
+        "কাকে",
+        "কাদের",
+        "কার",
+        "কারা",
+        "কাহারা",
+        "কেটা"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "tired",
+      "bn": "ক্লান্ত",
+      "en": "Tired",
+      "classIndex": 24,
+      "avatar": "tired.webp",
+      "hasAudio": true,
+      "variants": [
+        "অবসন্ন",
+        "ক্লান্তকে",
+        "ক্লান্তি",
+        "ক্লান্তিতে",
+        "ক্লান্তির",
+        "টায়ার্ড",
+        "শ্রান্ত"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "hungry",
+      "bn": "ক্ষুধার্ত",
+      "en": "Hungry",
+      "classIndex": 25,
+      "avatar": "hungry.webp",
+      "hasAudio": true,
+      "variants": [
+        "ক্ষুধার্তকে",
+        "ক্ষুধার্তদের"
+      ],
+      "avatarKind": "photo"
+    },
+    {
+      "slug": "eating",
+      "bn": "খাওয়া",
+      "en": "Eating",
+      "classIndex": 26,
+      "avatar": "eating.webp",
+      "hasAudio": true,
+      "variants": [
+        "খাই",
+        "খাইছি",
+        "খাইছে",
+        "খাচ্ছি",
+        "খাচ্ছে",
+        "খান",
+        "খাব",
+        "খাবার",
+        "খাবো",
+        "খেতে",
+        "খেয়ে",
+        "খেয়েছে",
+        "খেলাম"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "bad",
+      "bn": "খারাপ",
+      "en": "Bad",
+      "classIndex": 27,
+      "avatar": "bad.webp",
+      "hasAudio": true,
+      "variants": [
+        "অশুভ",
+        "খারাপকে",
+        "খারাপটা",
+        "খারাপভাবে",
+        "খারাপের",
+        "বাজে",
+        "মন্দ"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "mathematics",
+      "bn": "গণিত",
+      "en": "Mathematics",
+      "classIndex": 28,
+      "avatar": "mathematics.webp",
+      "hasAudio": true,
+      "variants": [
+        "গণিতে",
+        "গণিতের"
+      ],
+      "avatarKind": "photo"
+    },
+    {
+      "slug": "cow",
+      "bn": "গরু",
+      "en": "Cow",
+      "classIndex": 29,
+      "avatar": "cow.webp",
+      "hasAudio": true,
+      "variants": [
+        "গরুকে",
+        "গরুগুলো",
+        "গরুটা",
+        "গরুটি",
+        "গরুর",
+        "গাভী",
+        "গো"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "neck",
+      "bn": "গলা",
+      "en": "Neck",
+      "classIndex": 30,
+      "avatar": "neck.webp",
+      "hasAudio": true,
+      "variants": [
+        "গলাগুলো",
+        "গলাটা",
+        "গলায়",
+        "গলার",
+        "ঘাড়"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "multiplication",
+      "bn": "গুণ",
+      "en": "Multiplication",
+      "classIndex": 31,
+      "avatar": "multiplication.webp",
+      "hasAudio": true,
+      "variants": [
+        "গুণফল",
+        "গুণে",
+        "গুণের",
+        "গুন"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "clock",
+      "bn": "ঘড়ি",
+      "en": "Clock",
+      "classIndex": 32,
+      "avatar": "clock.webp",
+      "hasAudio": true,
+      "variants": [
+        "ঘড়িটা",
+        "ঘড়িতে"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "sleeping",
+      "bn": "ঘুমানো",
+      "en": "Sleeping",
+      "classIndex": 33,
+      "avatar": "sleeping.webp",
+      "hasAudio": true,
+      "variants": [
+        "ঘুম",
+        "ঘুমাই",
+        "ঘুমাইছে",
+        "ঘুমাও",
+        "ঘুমাচ্ছি",
+        "ঘুমাচ্ছে",
+        "ঘুমাতে",
+        "ঘুমাবো",
+        "ঘুমাল",
+        "ঘুমিয়ে",
+        "ঘুমিয়েছে"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "chittagong",
+      "bn": "চট্টগ্রাম",
+      "en": "Chittagong",
+      "classIndex": 34,
+      "avatar": "chittagong.webp",
+      "hasAudio": true,
+      "variants": [
+        "চট্রগ্রাম",
+        "চাটগাঁ",
+        "চাটগাঁইয়া",
+        "চিটাগং"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "uncle",
+      "bn": "চাচা(মামা)",
+      "en": "Uncle",
+      "classIndex": 35,
+      "avatar": "uncle.webp",
+      "hasAudio": true,
+      "variants": [
+        "কাকা",
+        "কাকু",
+        "খালু",
+        "চাচা",
+        "চাচার",
+        "ফুফা",
+        "মামা",
+        "মামার"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "skin",
+      "bn": "চামড়া",
+      "en": "Skin",
+      "classIndex": 36,
+      "avatar": "skin.webp",
+      "hasAudio": true,
+      "variants": [],
+      "avatarKind": "photo"
+    },
+    {
+      "slug": "four",
+      "bn": "চার",
+      "en": "Four",
+      "classIndex": 37,
+      "avatar": "four.webp",
+      "hasAudio": true,
+      "variants": [
+        "চারটা",
+        "চারটি",
+        "৪"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "shut-up",
+      "bn": "চুপ করো",
+      "en": "Shut up",
+      "classIndex": 38,
+      "avatar": "shut-up.webp",
+      "hasAudio": true,
+      "variants": [
+        "চুপ",
+        "চুপ কর",
+        "চুপ থাক",
+        "চুপ থাকুন",
+        "চুপকরো",
+        "চুপচাপ",
+        "চুপটি"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "hair",
+      "bn": "চুল",
+      "en": "Hair",
+      "classIndex": 39,
+      "avatar": "hair.webp",
+      "hasAudio": true,
+      "variants": [
+        "চুলগুলো",
+        "চুলে",
+        "চুলের"
+      ],
+      "avatarKind": "photo"
+    },
+    {
+      "slug": "eye",
+      "bn": "চোখ",
+      "en": "Eye",
+      "classIndex": 40,
+      "avatar": "eye.webp",
+      "hasAudio": true,
+      "variants": [
+        "আঁখি",
+        "চোখগুলো",
+        "চোখে",
+        "চোখের",
+        "নয়ন"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "six",
+      "bn": "ছয়",
+      "en": "Six",
+      "classIndex": 41,
+      "avatar": "six.webp",
+      "hasAudio": true,
+      "variants": [
+        "ছয়টা",
+        "ছয়টি",
+        "৬"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "small",
+      "bn": "ছোট",
+      "en": "Small",
+      "classIndex": 42,
+      "avatar": "small.webp",
+      "hasAudio": true,
+      "variants": [
+        "ক্ষুদ্র",
+        "ছোটকে",
+        "ছোটটি",
+        "ছোটর",
+        "ছোটো",
+        "ছোট্ট"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "tongue",
+      "bn": "জিহ্বা",
+      "en": "Tongue",
+      "classIndex": 43,
+      "avatar": "tongue.webp",
+      "hasAudio": true,
+      "variants": [
+        "জিহ্বায়",
+        "জিহ্বার"
+      ],
+      "avatarKind": "photo"
+    },
+    {
+      "slug": "shoe",
+      "bn": "জুতো",
+      "en": "Shoe",
+      "classIndex": 44,
+      "avatar": "shoe.webp",
+      "hasAudio": true,
+      "variants": [
+        "জুতা",
+        "জুতাগুলো",
+        "জুতোগুলো"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "prison",
+      "bn": "জেল",
+      "en": "Prison",
+      "classIndex": 45,
+      "avatar": "prison.webp",
+      "hasAudio": true,
+      "variants": [
+        "কয়েদখানা",
+        "কারাগার",
+        "জেলখানা",
+        "জেলে",
+        "জেলের"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "fever",
+      "bn": "জ্বর",
+      "en": "Fever",
+      "classIndex": 46,
+      "avatar": "fever.webp",
+      "hasAudio": true,
+      "variants": [
+        "অসুখ",
+        "জ্বরটা"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "toilet",
+      "bn": "টয়লেট",
+      "en": "Toilet",
+      "classIndex": 47,
+      "avatar": "toilet.webp",
+      "hasAudio": true,
+      "variants": [
+        "টয়লেটে",
+        "টয়লেটের"
+      ],
+      "avatarKind": "photo"
+    },
+    {
+      "slug": "cap",
+      "bn": "টুপি",
+      "en": "Cap",
+      "classIndex": 48,
+      "avatar": "cap.webp",
+      "hasAudio": true,
+      "variants": [
+        "টুপিটা",
+        "টুপিতে",
+        "হ্যাট"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "cold",
+      "bn": "ঠান্ডা",
+      "en": "Cold",
+      "classIndex": 49,
+      "avatar": "cold.webp",
+      "hasAudio": true,
+      "variants": [
+        "ঠাণ্ডা",
+        "ঠান্ডাকে",
+        "ঠান্ডায়",
+        "ঠান্ডার",
+        "শীত",
+        "শীতল",
+        "সর্দি"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "doctor",
+      "bn": "ডাক্তার",
+      "en": "Doctor",
+      "classIndex": 50,
+      "avatar": "doctor.webp",
+      "hasAudio": true,
+      "variants": [
+        "চিকিৎসক",
+        "ডক্টর",
+        "ডাক্তারকে",
+        "ডাক্তারবাবু",
+        "ডাক্তাররা",
+        "ডাক্তারের"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "right",
+      "bn": "ডান",
+      "en": "Right",
+      "classIndex": 51,
+      "avatar": "right.webp",
+      "hasAudio": true,
+      "variants": [
+        "ডাইনে",
+        "ডানদিক",
+        "ডানদিকে",
+        "ডানে",
+        "ডানের"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "egg",
+      "bn": "ডিম",
+      "en": "Egg",
+      "classIndex": 52,
+      "avatar": "egg.webp",
+      "hasAudio": true,
+      "variants": [
+        "অণ্ড",
+        "ডিমগুলো",
+        "ডিমটা"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "his",
+      "bn": "তার",
+      "en": "His",
+      "classIndex": 53,
+      "avatar": "his.webp",
+      "hasAudio": true,
+      "variants": [
+        "তাঁর",
+        "তাঁহার",
+        "তারটা",
+        "তাহার"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "three",
+      "bn": "তিন",
+      "en": "Three",
+      "classIndex": 54,
+      "avatar": "three.webp",
+      "hasAudio": true,
+      "variants": [
+        "তিনটা",
+        "তিনটি",
+        "৩"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "you",
+      "bn": "তুমি(আপনি)",
+      "en": "You",
+      "classIndex": 55,
+      "avatar": "your.webp",
+      "hasAudio": true,
+      "variants": [
+        "আপনাকে",
+        "আপনারা",
+        "আপনি",
+        "তুই",
+        "তুমি",
+        "তোমাকে",
+        "তোমায়",
+        "তোমারা",
+        "তোরা"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "third",
+      "bn": "তৃতীয়",
+      "en": "Third",
+      "classIndex": 56,
+      "avatar": "third.webp",
+      "hasAudio": true,
+      "variants": [],
+      "avatarKind": "photo"
+    },
+    {
+      "slug": "your",
+      "bn": "তোমার(আপনার)",
+      "en": "Your",
+      "classIndex": 57,
+      "avatar": "your.webp",
+      "hasAudio": true,
+      "variants": [
+        "আপনাদের",
+        "আপনার",
+        "তোদের",
+        "তোমাদের",
+        "তোমার",
+        "তোর"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "stop",
+      "bn": "থামো",
+      "en": "Stop",
+      "classIndex": 58,
+      "avatar": "stop.webp",
+      "hasAudio": true,
+      "variants": [
+        "থাম",
+        "থামানো",
+        "থামুন",
+        "থেমে"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "stand",
+      "bn": "দাঁড়াও",
+      "en": "Stand",
+      "classIndex": 59,
+      "avatar": "stand.webp",
+      "hasAudio": true,
+      "variants": [
+        "উঠে দাঁড়াও",
+        "দাঁড়া",
+        "দাঁড়াচ্ছে",
+        "দাঁড়ান",
+        "দাঁড়ানোর",
+        "দাঁড়াবো",
+        "দাঁড়িয়ে",
+        "দাঁড়িয়েছে"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "teeth",
+      "bn": "দাঁত",
+      "en": "Teeth",
+      "classIndex": null,
+      "avatar": "teeth.webp",
+      "hasAudio": false,
+      "variants": [
+        "দাঁতগুলো",
+        "দাঁতে",
+        "দাঁতের"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "brush-teeth",
+      "bn": "দাঁত মাজা",
+      "en": "Brush Teeth",
+      "classIndex": null,
+      "avatar": "brush-teeth.webp",
+      "hasAudio": false,
+      "variants": [
+        "দাঁত ব্রাশ",
+        "দাঁত মাজছি",
+        "দাঁত মাজছে",
+        "দাঁত মাজবো",
+        "দাঁত মেজেছে",
+        "দাঁতমাজা",
+        "ব্রাশ"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "sorry",
+      "bn": "দুঃখিত",
+      "en": "Sorry",
+      "classIndex": null,
+      "avatar": "sorry.webp",
+      "hasAudio": false,
+      "variants": [
+        "sorry",
+        "ক্ষমা",
+        "দুঃখিতভাবে",
+        "দুঃখিতরা",
+        "দুঃখিতের",
+        "মাফ",
+        "মাফ করবেন",
+        "সরি"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "sight",
+      "bn": "দৃষ্টি",
+      "en": "Sight",
+      "classIndex": null,
+      "avatar": "sight.webp",
+      "hasAudio": false,
+      "variants": [
+        "দৃষ্টিশক্তি"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "nine",
+      "bn": "নয়",
+      "en": "Nine",
+      "classIndex": null,
+      "avatar": "nine.webp",
+      "hasAudio": false,
+      "variants": [
+        "নয়টা",
+        "নয়টি",
+        "নয়ে",
+        "নয়ের",
+        "৯"
+      ],
+      "avatarKind": "render"
+    },
+    {
+      "slug": "nose",
+      "bn": "নাক",
+      "en": "Nose",
+      "classIndex": null,
+      "avatar": "nose.webp",
+      "hasAudio": false,
+      "variants": [
+        "নাকগুলো",
+        "নাকটা",
+        "নাকে",
+        "নাকের"
+      ],
+      "avatarKind": "render"
+    }
+  ]
+}
