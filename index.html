@@ -90,7 +90,6 @@
                 <button type="button" class="nav-item active" data-i18n-tip="tip.home" data-i18n-aria="tip.home"><i data-lucide="home"></i></button>
                 <button type="button" class="nav-item" onclick="openView('signToSpeechPanel')" data-i18n-tip="card.camera" data-i18n-aria="card.camera"><i data-lucide="camera"></i></button>
                 <button type="button" class="nav-item" onclick="openView('speechToSignPanel')" data-i18n-tip="card.voice" data-i18n-aria="card.voice"><i data-lucide="mic"></i></button>
-                <button type="button" class="nav-item" onclick="document.getElementById('settingsBtn').click()" data-i18n-tip="tip.settings" data-i18n-aria="tip.settings"><i data-lucide="user"></i></button>
             </nav>
         </div>
 
@@ -258,19 +257,6 @@
                     </div>
                 </div>
 
-                <!-- Camera Aspect Ratio -->
-                <div class="settings-row">
-                    <div class="settings-label" data-i18n-tip="tip.cameraView" data-i18n-aria="tip.cameraView"><i data-lucide="smartphone"></i> <span data-i18n="settings.cameraView">Camera View</span></div>
-                    <div class="settings-control">
-                        <span class="toggle-option left active" id="cameraRatioLabelLeft" data-i18n="settings.landscape">Landscape</span>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="cameraRatioToggle" data-i18n-aria="settings.cameraView">
-                            <span class="toggle-slider"></span>
-                        </label>
-                        <span class="toggle-option right" id="cameraRatioLabelRight" data-i18n="settings.portrait">Portrait</span>
-                    </div>
-                </div>
-
                 <!-- Missing Avatar Fallback -->
                 <div class="settings-row">
                     <div class="settings-label" data-i18n-tip="tip.fallback" data-i18n-aria="tip.fallback">
@@ -296,19 +282,6 @@
                             <span class="toggle-slider"></span>
                         </label>
                         <span class="toggle-option right active" id="ttsLabelRight" data-i18n="settings.on">ON</span>
-                    </div>
-                </div>
-
-                <!-- TTS Language -->
-                <div class="settings-row">
-                    <div class="settings-label" data-i18n-tip="tip.voiceLang" data-i18n-aria="tip.voiceLang"><i data-lucide="globe"></i> <span data-i18n="settings.voiceLang">Voice Language</span></div>
-                    <div class="settings-control">
-                        <span class="toggle-option left active" id="ttsLangLabelLeft" data-i18n="settings.bengali">Bengali</span>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="ttsLangToggle" data-i18n-aria="settings.voiceLang">
-                            <span class="toggle-slider"></span>
-                        </label>
-                        <span class="toggle-option right" id="ttsLangLabelRight" data-i18n="settings.english">English</span>
                     </div>
                 </div>
 

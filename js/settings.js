@@ -17,21 +17,6 @@ const Settings = {
                 html.classList.add(`text-scale-${value}`);
             }
         },
-        cameraRatio: {
-            toggle: 'cameraRatioToggle',
-            labels: ['cameraRatioLabelLeft', 'cameraRatioLabelRight'],
-            options: ['landscape', 'portrait'],
-            fallback: 'landscape',
-            apply(value, isUserChange) {
-                CONFIG.CAMERA_ASPECT_RATIO = value;
-                document.getElementById('stsVideoContainer')
-                    ?.classList.toggle('portrait', value === 'portrait');
-                if (isUserChange && SignToSpeech.isRunning) {
-                    SignToSpeech.stopCamera();
-                    setTimeout(() => SignToSpeech.startCamera(), 300);
-                }
-            }
-        },
         missingAvatar: {
             toggle: 'fallbackModeToggle',
             labels: ['fallbackModeLabelLeft', 'fallbackModeLabelRight'],
@@ -45,13 +30,6 @@ const Settings = {
             options: ['off', 'on'],
             fallback: 'on',
             apply(value) { CONFIG.TTS_ENABLED = value === 'on'; }
-        },
-        voiceLanguage: {
-            toggle: 'ttsLangToggle',
-            labels: ['ttsLangLabelLeft', 'ttsLangLabelRight'],
-            options: ['bn', 'en'],
-            fallback: 'bn',
-            apply(value) { CONFIG.TTS_LANGUAGE = value; }
         },
         uiLanguage: {
             toggle: 'uiLangToggle',

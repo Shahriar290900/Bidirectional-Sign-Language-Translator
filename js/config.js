@@ -66,9 +66,8 @@ const CONFIG = {
      */
     TTS_ENABLED: true,
 
-    /* === SETTING: TTS LANGUAGE ===
-     * Which pre-recorded audio plays. Options: 'bn' (Bengali) or 'en' (English)
-     */
+    /* Which pre-recorded audio plays. Fixed to Bengali — this is a Bengali
+     * sign language tool, so there is no user-facing switch for it. */
     TTS_LANGUAGE: 'bn',
 
     /* === SETTING: INTERFACE LANGUAGE ===
