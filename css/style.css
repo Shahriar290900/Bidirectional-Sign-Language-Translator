@@ -524,6 +524,8 @@ body {
 #bidirectionalPanel {
     height: 100%;
     overflow-y: auto;
+    /* The vertical scrollbar would otherwise push the grid sideways. */
+    overflow-x: hidden;
     /* .view-panel reserves 100px for the bottom nav, but that nav only exists on
        the home screen — reclaiming it is what keeps the mic above the fold. */
     padding-bottom: 24px;
@@ -1150,19 +1152,54 @@ html.text-scale-normal { font-size: 16px; } /* default browser size */
 
     /* Keep the whole conversation inside one screen — no scrolling to reach the mic.
        A conversation turn is a few words, so the tall composing box is not needed. */
-    /* Shrink the media by whatever the rest of the column needs, so the mic stays
-       on screen on a short laptop instead of only on a tall one. */
+    /* Constrain by WIDTH derived from the leftover height, so the box keeps a
+       true 4:3 instead of being squashed and cropped — cropping the camera can
+       cut off the signer's hands. This yields the largest untruncated media
+       that still leaves the mic on screen. */
     #bidirectionalPanel .video-container,
     #bidirectionalPanel .avatar-display {
-        max-height: min(34vh, calc(100vh - 490px));
+        max-width: calc((100vh - 448px) * 4 / 3);
+        max-height: none;
+        margin: 0 auto;
     }
 
+    /* A conversation deserves more of a wide screen than the phone-shaped shell. */
+    .app-container:has(#bidirectionalPanel.active) {
+        max-width: 1500px;
+    }
+
+    /* Trimming the composing box is what buys the media its extra height. */
     #bidirectionalPanel .spts-textarea {
-        min-height: 48px;
+        min-height: 40px;
+    }
+
+    #bidirectionalPanel .text-input-area {
+        padding: 12px 14px;
+    }
+
+    #bidirectionalPanel .input-header {
+        margin-bottom: 8px;
+    }
+
+    #bidirectionalPanel .input-actions {
+        margin-top: 8px;
+        padding-top: 8px;
     }
 
     #bidirectionalPanel .sentence-section,
     #bidirectionalPanel .text-input-area {
-        min-height: 132px;
+        min-height: 120px;
+    }
+}
+
+/* Trim the chrome around the conversation so the media can be larger. */
+@media (min-width: 768px) {
+    #bidirectionalPanel {
+        padding: 28px 28px 20px;
+    }
+
+    #bidirectionalPanel .view-header {
+        margin-bottom: 14px;
+        padding-top: 6px;
     }
 }
