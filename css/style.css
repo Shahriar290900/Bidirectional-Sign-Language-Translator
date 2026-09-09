@@ -524,6 +524,9 @@ body {
 #bidirectionalPanel {
     height: 100%;
     overflow-y: auto;
+    /* .view-panel reserves 100px for the bottom nav, but that nav only exists on
+       the home screen — reclaiming it is what keeps the mic above the fold. */
+    padding-bottom: 24px;
 }
 
 .bidi-split {
@@ -565,20 +568,6 @@ body {
     display: none;
 }
 
-/* Match the capture shape (640x480) rather than the tall portrait crop the
-   single-direction panel uses, so both halves stay reachable on a phone. */
-#bidirectionalPanel .video-container {
-    aspect-ratio: 4/3;
-}
-
-@media (min-width: 900px) {
-    .bidi-split {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 28px;
-        align-items: start;
-    }
-}
 
 /* =========================================
    SKELETON LOADERS
@@ -1098,5 +1087,82 @@ html.text-scale-normal { font-size: 16px; } /* default browser size */
         transform: translate(-50%, -50%) scale(1);
         opacity: 1;
         pointer-events: auto;
+    }
+}
+/* =========================================
+   CONVERSATION VIEW LAYOUT
+   Declared last so it wins over the panel rules in the 768px block above.
+========================================= */
+
+/* Camera and avatar share a shape, so with equal-width columns they render at
+   equal height — which is what keeps the rows beneath them lined up. */
+#bidirectionalPanel .video-container,
+#bidirectionalPanel .avatar-display {
+    width: 100%;
+    aspect-ratio: 4/3;
+    margin: 0;
+}
+
+/* Order places each surface in its row: media, then the reading/typing row,
+   then the mic. Status lines sit last so they cannot push the rows apart. */
+#bidirectionalPanel .bidi-label { order: 0; }
+#bidirectionalPanel .video-container,
+#bidirectionalPanel .avatar-display { order: 1; }
+#bidirectionalPanel .sentence-section,
+#bidirectionalPanel .text-input-area { order: 2; }
+#bidirectionalPanel .voice-control-area { order: 3; }
+#bidirectionalPanel .voice-status { order: 4; }
+#bidirectionalPanel .sign-info { order: 5; }
+#bidirectionalPanel .error-message { order: 6; }
+
+/* A compact mic laid out in a row, so it stays on screen instead of below the fold. */
+#bidirectionalPanel .voice-control-area {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 4px;
+}
+#bidirectionalPanel .huge-voice-btn { width: 56px; height: 56px; }
+#bidirectionalPanel .huge-voice-btn i { width: 24px; height: 24px; }
+#bidirectionalPanel .helper-text { margin: 0; font-size: 0.85rem; }
+
+/* Playback progress reads better as a caption here than as another card. */
+#bidirectionalPanel .sign-info {
+    background: none;
+    border: none;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    padding: 2px 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+@media (min-width: 900px) {
+    #bidirectionalPanel .bidi-split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 28px;
+        align-items: start;
+    }
+
+    /* Keep the whole conversation inside one screen — no scrolling to reach the mic.
+       A conversation turn is a few words, so the tall composing box is not needed. */
+    /* Shrink the media by whatever the rest of the column needs, so the mic stays
+       on screen on a short laptop instead of only on a tall one. */
+    #bidirectionalPanel .video-container,
+    #bidirectionalPanel .avatar-display {
+        max-height: min(34vh, calc(100vh - 490px));
+    }
+
+    #bidirectionalPanel .spts-textarea {
+        min-height: 48px;
+    }
+
+    #bidirectionalPanel .sentence-section,
+    #bidirectionalPanel .text-input-area {
+        min-height: 132px;
     }
 }
