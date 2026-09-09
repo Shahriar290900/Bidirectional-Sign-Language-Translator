@@ -73,6 +73,7 @@ const I18n = {
         'settings.english':   ['ইংরেজি', 'English'],
         'settings.supervisor':['প্রকল্প তত্ত্বাবধায়ক:', 'Project Supervisor:'],
         'settings.madeBy':    ['নির্মাতা:', 'Made by:'],
+        'settings.avatarCredit': ['অবতার রিগ:', 'Avatar rig:'],
         'settings.close':     ['বন্ধ করুন', 'Close'],
 
         'tip.settings':       ['সেটিংস খুলুন', 'Open settings'],

@@ -302,8 +302,26 @@ there — typing still works.
 Built by **Hameem, Nazmul, Sun, Noman and Shakhawat** at the University of Liberal Arts Bangladesh.
 Supervised by **Nasir Uddin Ahmed**.
 
-Sign recognition uses [MediaPipe Tasks Vision](https://developers.google.com/mediapipe).
+- Hand and pose detection: [MediaPipe Tasks Vision](https://developers.google.com/mediapipe), Google LLC (Apache-2.0)
+- Sign avatars: posed and rendered from the **Snow** character rig by
+  [Blender Studio](https://studio.blender.org/), used under
+  [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- Interface icons: [Lucide](https://lucide.dev/) (ISC)
 
-## License
+## Licence
 
-No licence. Use it, find problems, help us improve the model.
+This project is released under two licences, because code and creative work need different terms.
+
+| What | Licence |
+|---|---|
+| Source code, tooling, trained model weights | [Apache License 2.0](LICENSE) |
+| Avatars, audio recordings, vocabulary data, documentation images | [CC BY 4.0](LICENSE-ASSETS.md) |
+
+In short: you may use, modify and redistribute all of it, including commercially, as long as you
+keep the copyright notice and credit the authors. Apache-2.0 additionally grants you patent rights
+from the contributors, and requires that [NOTICE](NOTICE) travels with the code.
+
+The avatars are derivative works of Blender Studio's Snow rig, so **Blender Studio must be
+credited** wherever they are reused. [LICENSE-ASSETS.md](LICENSE-ASSETS.md) explains that, and
+notes that the reference photographs show an identifiable person whose likeness rights are not
+covered by any copyright licence.

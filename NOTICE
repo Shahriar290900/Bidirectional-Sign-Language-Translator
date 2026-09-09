@@ -1,0 +1,50 @@
+Bidirectional Bangla Sign Language Translator
+Copyright 2026 Md. Nazmul Haque, Ahsun Ahmed Sun, Md Shakhawat Hossen,
+Md Fahad Al Noman, M Al Shahriar Hameem
+
+University of Liberal Arts Bangladesh (ULAB)
+Supervised by Nasir Uddin Ahmed
+
+This product includes software developed as a Computer Science and Engineering
+capstone project at ULAB.
+
+--------------------------------------------------------------------------------
+THIRD-PARTY ATTRIBUTIONS
+--------------------------------------------------------------------------------
+
+Snow character rig
+    The sign avatars in avatars/ were produced by posing and rendering the
+    "Snow" character rig from Blender Studio. Every rendered avatar is therefore
+    a derivative work of that rig.
+
+    Snow is licensed under the Creative Commons Attribution 4.0 International
+    licence (CC BY 4.0) by Blender Studio.
+
+    https://studio.blender.org/
+    https://creativecommons.org/licenses/by/4.0/
+
+MediaPipe Tasks Vision (v0.10.14)
+    Hand and pose landmark detection. Loaded at runtime from a CDN; no MediaPipe
+    source or binary is redistributed in this repository.
+
+    Copyright Google LLC, licensed under the Apache License, Version 2.0.
+    https://developers.google.com/mediapipe
+
+Lucide
+    Interface icons, loaded at runtime from a CDN.
+    Licensed under the ISC licence.
+    https://lucide.dev/
+
+Outfit typeface
+    Loaded at runtime from Google Fonts.
+    Licensed under the SIL Open Font License 1.1.
+
+--------------------------------------------------------------------------------
+SEPARATELY LICENSED CONTENT
+--------------------------------------------------------------------------------
+
+The Apache License 2.0 in LICENSE covers the source code, the trained model
+weights and the tooling.
+
+It does NOT cover the media and vocabulary content, which is released under
+CC BY 4.0 instead. See LICENSE-ASSETS.md for the list and the reasoning.
