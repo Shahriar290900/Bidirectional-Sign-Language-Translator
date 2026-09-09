@@ -165,6 +165,12 @@ body {
     padding: 20px;
     cursor: pointer;
     transition: var(--transition);
+    /* These are <button> elements so they are reachable by keyboard. */
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    display: block;
+    width: 100%;
 }
 
 .bento-card:hover {
@@ -508,6 +514,70 @@ body {
     background: rgba(255,255,255,0.4);
     overflow: hidden;
     position: relative;
+}
+
+/* =========================================
+   BIDIRECTIONAL (CONVERSATION) VIEW
+========================================= */
+/* Panels are absolutely positioned inside an overflow:hidden shell, so this one
+   needs its own scroll context or a tall split would simply be clipped. */
+#bidirectionalPanel {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.bidi-split {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.bidi-half {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;   /* let the camera shrink instead of forcing the row wider */
+}
+
+.bidi-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.bidi-label i {
+    width: 16px;
+    height: 16px;
+}
+
+/* Face-to-face on a tablet: turn the hearing user's half toward them. */
+#bidirectionalPanel.rotated .bidi-half:last-child {
+    transform: rotate(180deg);
+}
+
+/* The conversation view drives the camera itself. */
+#bidirectionalPanel .floating-controls {
+    display: none;
+}
+
+/* Match the capture shape (640x480) rather than the tall portrait crop the
+   single-direction panel uses, so both halves stay reachable on a phone. */
+#bidirectionalPanel .video-container {
+    aspect-ratio: 4/3;
+}
+
+@media (min-width: 900px) {
+    .bidi-split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        align-items: start;
+    }
 }
 
 /* =========================================
@@ -870,7 +940,6 @@ body {
 /* Text Scaling via HTML root */
 html.text-scale-small { font-size: 14px; }
 html.text-scale-normal { font-size: 16px; } /* default browser size */
-html.text-scale-large { font-size: 18px; }
 
 /* =========================================
    DESKTOP / WEB BROWSER ADAPTATIONS
@@ -893,7 +962,7 @@ html.text-scale-large { font-size: 18px; }
     }
 
     .bento-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 24px;
     }
 
@@ -927,7 +996,8 @@ html.text-scale-large { font-size: 18px; }
         margin-top: 24px;
     }
     
-    #speechToSignPanel .avatar-display { 
+    #speechToSignPanel .avatar-display,
+    #bidirectionalPanel .avatar-display {
         grid-area: avatar; 
         width: 100%;
         aspect-ratio: 4/3;
@@ -941,7 +1011,8 @@ html.text-scale-large { font-size: 18px; }
         box-shadow: var(--glass-shadow);
     }
     
-    #speechToSignPanel .avatar-display img {
+    #speechToSignPanel .avatar-display img,
+    #bidirectionalPanel .avatar-display img {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -963,7 +1034,8 @@ html.text-scale-large { font-size: 18px; }
         align-items: start;
     }
     
-    #signToSpeechPanel .video-container { 
+    #signToSpeechPanel .video-container,
+    #bidirectionalPanel .video-container {
         grid-area: video; 
         width: 100%;
         aspect-ratio: 4/3; /* Stable landscape video ratio */
@@ -974,7 +1046,8 @@ html.text-scale-large { font-size: 18px; }
         box-shadow: var(--glass-shadow);
     }
     
-    #signToSpeechPanel .video-container video {
+    #signToSpeechPanel .video-container video,
+    #bidirectionalPanel .video-container video {
         width: 100%;
         height: 100%;
         object-fit: cover;

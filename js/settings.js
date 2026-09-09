@@ -31,6 +31,18 @@ const Settings = {
             fallback: 'on',
             apply(value) { CONFIG.TTS_ENABLED = value === 'on'; }
         },
+        // Flips the hearing user's half for a tablet lying flat between two people.
+        // Driven by a button in the panel header rather than a switch, so it has no labels.
+        rotateSpeaker: {
+            toggle: null,
+            labels: [],
+            options: ['off', 'on'],
+            fallback: 'off',
+            apply(value) {
+                document.getElementById('bidirectionalPanel')
+                    ?.classList.toggle('rotated', value === 'on');
+            }
+        },
         uiLanguage: {
             toggle: 'uiLangToggle',
             labels: ['uiLangLabelLeft', 'uiLangLabelRight'],
@@ -74,6 +86,7 @@ const Settings = {
     /** Keep the two text labels either side of the switch in sync with the value. */
     reflect(key) {
         const def = this.definitions[key];
+        if (!def.toggle) return;
         const selected = def.options.indexOf(this.values[key]);
         def.labels.forEach((id, i) => {
             document.getElementById(id)?.classList.toggle('active', i === selected);

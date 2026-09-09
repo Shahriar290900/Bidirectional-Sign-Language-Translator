@@ -50,34 +50,44 @@
             <!-- Bento Grid Features -->
             <div class="bento-grid">
                 <!-- Camera (Sign -> Speech) -->
-                <div class="bento-card glass-card" onclick="openView('signToSpeechPanel')">
+                <button type="button" class="bento-card glass-card" onclick="openView('signToSpeechPanel')">
                     <div class="card-header">
                         <div class="icon-circle"><i data-lucide="camera"></i></div>
                         <i data-lucide="arrow-up-right" class="arrow"></i>
                     </div>
                     <h3 data-i18n="card.camera">Camera</h3>
                     <p data-i18n="card.cameraDesc">Sign to text</p>
-                </div>
+                </button>
 
                 <!-- Voice (Speech -> Sign) -->
-                <div class="bento-card glass-card" onclick="openView('speechToSignPanel')">
+                <button type="button" class="bento-card glass-card" onclick="openView('speechToSignPanel')">
                     <div class="card-header">
                         <div class="icon-circle"><i data-lucide="mic"></i></div>
                         <i data-lucide="arrow-up-right" class="arrow"></i>
                     </div>
                     <h3 data-i18n="card.voice">Voice</h3>
                     <p data-i18n="card.voiceDesc">Speak to sign</p>
-                </div>
+                </button>
+
+                <!-- Both directions at once -->
+                <button type="button" class="bento-card glass-card" onclick="openView('bidirectionalPanel')">
+                    <div class="card-header">
+                        <div class="icon-circle"><i data-lucide="arrow-left-right"></i></div>
+                        <i data-lucide="arrow-up-right" class="arrow"></i>
+                    </div>
+                    <h3 data-i18n="card.both">Conversation</h3>
+                    <p data-i18n="card.bothDesc">Both at once</p>
+                </button>
 
                 <!-- Text / Dictionary -->
-                <div class="bento-card glass-card" onclick="window.location.href='dictionary.html'">
+                <button type="button" class="bento-card glass-card" onclick="window.location.href='dictionary.html'">
                     <div class="card-header">
                         <div class="icon-circle"><i data-lucide="book-open"></i></div>
                         <i data-lucide="arrow-up-right" class="arrow"></i>
                     </div>
                     <h3 data-i18n="card.dictionary">Dictionary</h3>
                     <p data-i18n="card.dictionaryDesc">Learn signs</p>
-                </div>
+                </button>
             </div>
 
             <div class="credits-footer">
@@ -87,9 +97,10 @@
 
             <!-- Bottom Nav -->
             <nav class="bottom-nav glass-card">
-                <button type="button" class="nav-item active" data-i18n-tip="tip.home" data-i18n-aria="tip.home"><i data-lucide="home"></i></button>
+                <button type="button" class="nav-item active" onclick="closeView()" data-i18n-tip="tip.home" data-i18n-aria="tip.home"><i data-lucide="home"></i></button>
                 <button type="button" class="nav-item" onclick="openView('signToSpeechPanel')" data-i18n-tip="card.camera" data-i18n-aria="card.camera"><i data-lucide="camera"></i></button>
                 <button type="button" class="nav-item" onclick="openView('speechToSignPanel')" data-i18n-tip="card.voice" data-i18n-aria="card.voice"><i data-lucide="mic"></i></button>
+                <button type="button" class="nav-item" onclick="openView('bidirectionalPanel')" data-i18n-tip="card.both" data-i18n-aria="card.both"><i data-lucide="arrow-left-right"></i></button>
             </nav>
         </div>
 
@@ -105,7 +116,7 @@
                         data-lucide="more-vertical"></i></button>
             </header>
 
-            <div class="panel-content">
+            <div class="panel-content" data-slot="sign">
                 <!-- Camera Viewfinder -->
                 <div class="video-container glass-card" id="stsVideoContainer">
                     <video id="stsVideo" autoplay playsinline muted></video>
@@ -152,13 +163,14 @@
                         data-lucide="more-vertical"></i></button>
             </header>
 
-            <div class="panel-content flex-col">
+            <div class="panel-content flex-col" data-slot="speech">
 
                 <div class="text-input-area glass-card">
                     <div class="input-header">
                         <span class="lang-tag"><img src="https://flagcdn.com/w20/bd.png" alt="BD" width="20" height="15"> <span data-i18n="spts.inputLang">Bengali</span></span>
                     </div>
                     <textarea id="sptsTextInput" class="spts-textarea"
+                        data-i18n-aria="spts.placeholder"
                         data-i18n-placeholder="spts.placeholder" placeholder="Write text to translate..."></textarea>
 
                     <div class="input-actions">
@@ -190,6 +202,31 @@
                     <p class="helper-text" data-i18n="spts.tapToSpeak">Tap to speak</p>
                 </div>
 
+            </div>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- PANEL 3: Bidirectional (both at once)      -->
+        <!-- ========================================== -->
+        <div class="view-panel" id="bidirectionalPanel">
+            <header class="view-header">
+                <button type="button" class="icon-btn glass-btn" onclick="closeView()" data-i18n-tip="tip.back" data-i18n-aria="tip.back"><i data-lucide="chevron-left"></i></button>
+                <h2 data-i18n="panel.bothTitle">Conversation</h2>
+                <button type="button" class="icon-btn glass-btn" id="bidiRotateBtn" data-i18n-tip="tip.rotate" data-i18n-aria="tip.rotate"><i
+                        data-lucide="rotate-cw"></i></button>
+            </header>
+
+            <div class="panel-content bidi-split">
+                <!-- Deaf user: signs into the camera -->
+                <section class="bidi-half" data-slot="sign">
+                    <h3 class="bidi-label"><i data-lucide="camera"></i> <span data-i18n="both.signSide">Signing</span></h3>
+                </section>
+
+                <!-- Hearing user: speaks, and sees signs -->
+                <section class="bidi-half" data-slot="speech">
+                    <h3 class="bidi-label"><i data-lucide="mic"></i> <span data-i18n="both.speechSide">Speaking</span></h3>
+                </section>
             </div>
         </div>
 
@@ -302,20 +339,9 @@
 
     </div>
 
-    <!-- View Routing Logic -->
     <script>
-        // Initialize Lucide icons
+        // Initialize Lucide icons (openView/closeView live in js/app.js)
         lucide.createIcons();
-
-        function openView(panelId) {
-            document.querySelectorAll('.view-panel').forEach(p => p.classList.remove('active'));
-            document.getElementById(panelId).classList.add('active');
-        }
-
-        function closeView() {
-            document.querySelectorAll('.view-panel').forEach(p => p.classList.remove('active'));
-            document.getElementById('homeView').classList.add('active');
-        }
     </script>
 
     <!-- MediaPipe ES Module -->

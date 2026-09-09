@@ -1,5 +1,5 @@
-// v5: asset filenames changed to ASCII slugs, so every v4 entry is stale.
-const CACHE_NAME = 'sign-translator-v5';
+// v6: the app shell gained the conversation view, so v5 entries are stale.
+const CACHE_NAME = 'sign-translator-v6';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',

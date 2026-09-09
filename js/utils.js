@@ -162,13 +162,17 @@ class Utils {
 
     /** Play the pre-recorded clip for a sign, if it has one */
     static speakText(sign) {
-        if (!sign) return;
+        if (!sign) return null;
         const audioPath = SignData.audioUrl(sign, CONFIG.TTS_LANGUAGE);
-        if (!audioPath) return;
+        if (!audioPath) return null;
 
         const audio = new Audio(audioPath);
+        // In the conversation view the microphone is live while this plays, so stop
+        // the recogniser transcribing our own output.
+        SpeechToSign.suspendWhile(audio);
         audio.play().catch(e => {
             console.warn(`[TTS] Failed to play audio: ${audioPath}. Wait for user interaction first.`, e);
         });
+        return audio;
     }
 }

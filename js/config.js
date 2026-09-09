@@ -47,11 +47,8 @@ const CONFIG = {
         wristProximityThreshold: 0.15  // max distance (normalized) between hand wrist and pose wrist
     },
 
-    /* === TOGGLE: CAMERA ASPECT RATIO ===
-     * Options: 'landscape' (640x480) or 'portrait' (480x640)
-     * Change this value to switch the default camera mode.
-     * The toggle button in the UI also controls this at runtime.
-     */
+    /* Camera capture shape: 'landscape' (640x480) or 'portrait' (480x640).
+     * Edit here — there is no user-facing switch for it. */
     CAMERA_ASPECT_RATIO: 'landscape',
 
     /* === TOGGLE: MISSING AVATAR FALLBACK ===

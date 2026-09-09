@@ -6,6 +6,7 @@ const SpeechToSign = {
     isListening: false,
     silenceTimeout: null,
     isAnimating: false,
+    resumeAfterAudio: false,
     baseText: '',
     SILENCE_DURATION: 2000,
     AVATAR_DISPLAY_TIME: 1000, // Minimum time (in ms) to show each avatar AFTER it loads
@@ -157,10 +158,32 @@ const SpeechToSign = {
         };
     },
 
+    /**
+     * Hold recognition while `audio` plays, then resume it. Without this the microphone
+     * hears the app's own spoken output and feeds it straight back in as input.
+     */
+    suspendWhile(audio) {
+        if (!this.recognition || !this.isListening) return;
+
+        this.resumeAfterAudio = true;
+        try { this.recognition.stop(); } catch (e) { }
+
+        const resume = () => {
+            audio.removeEventListener('ended', resume);
+            audio.removeEventListener('error', resume);
+            if (!this.resumeAfterAudio) return;
+            this.resumeAfterAudio = false;
+            try { this.recognition.start(); } catch (e) { }
+        };
+        audio.addEventListener('ended', resume);
+        audio.addEventListener('error', resume);
+    },
+
     // VOICE CONTROL
     toggleVoice() {
         if (!this.recognition) return;
         if (this.isListening) {
+            this.resumeAfterAudio = false;   // an explicit stop outranks a pending resume
             this.recognition.stop();
             if (this.silenceTimeout) clearTimeout(this.silenceTimeout);
         } else {

@@ -1,12 +1,24 @@
-// APP CONTROLLER — Boot sequence, settings modal, permissions, status bar
+// APP CONTROLLER — Boot sequence, view routing, settings modal, permissions, status bar
+
+/**
+ * Each translation surface exists exactly once in the DOM and is moved into whichever
+ * panel is open. Because the nodes themselves are reused, every element id stays unique
+ * and every listener the modules attached keeps working.
+ */
+const SURFACES = {
+    sign: ['#stsVideoContainer', '.sentence-section', '.floating-controls'],
+    speech: ['.text-input-area', '#sptsVoiceStatus', '#sptsSignImage',
+             '#sptsSignInfo', '#sptsError', '.voice-control-area']
+};
 
 const App = {
+    currentPanel: 'homeView',
+
     async init() {
         Utils.log('App initializing...', 'info');
 
-        // Settings and interface language first, so the UI is correct while models load.
+        // Settings applies the saved interface language, which renders the UI.
         Settings.init();
-        I18n.apply();
 
         this.setupEventListeners();
         this.setupPermissionToggles();
@@ -45,7 +57,49 @@ const App = {
         });
     },
 
+    /** Move every surface into the slots of the panel being shown. */
+    mountSurfaces(panel) {
+        for (const [group, selectors] of Object.entries(SURFACES)) {
+            const slot = panel.querySelector(`[data-slot="${group}"]`);
+            if (!slot) continue;
+            for (const selector of selectors) {
+                const surface = document.querySelector(selector);
+                if (surface) slot.appendChild(surface);
+            }
+        }
+        // Re-parenting a <video> suspends playback in some browsers.
+        if (SignToSpeech.isRunning && SignToSpeech.video) SignToSpeech.video.play();
+    },
+
+    openView(panelId) {
+        const panel = document.getElementById(panelId);
+        if (!panel) return;
+
+        document.querySelectorAll('.view-panel').forEach(p => p.classList.remove('active'));
+        panel.classList.add('active');
+        this.mountSurfaces(panel);
+        this.currentPanel = panelId;
+
+        // The conversation view is only useful with the camera already running.
+        if (panelId === 'bidirectionalPanel') {
+            if (!SignToSpeech.isRunning) SignToSpeech.startCamera();
+        } else if (panelId !== 'signToSpeechPanel' && SignToSpeech.isRunning) {
+            SignToSpeech.stopCamera();
+        }
+    },
+
+    closeView() {
+        this.openView('homeView');
+    },
+
     setupEventListeners() {
+        const rotate = document.getElementById('bidiRotateBtn');
+        if (rotate) {
+            rotate.addEventListener('click', () => {
+                Settings.set('rotateSpeaker', Settings.values.rotateSpeaker === 'on' ? 'off' : 'on');
+            });
+        }
+
         const settingsBtn = document.getElementById('settingsBtn');
         const settingsModal = document.getElementById('settingsModal');
         if (settingsBtn && settingsModal) {
@@ -83,9 +137,13 @@ const App = {
             const paint = (granted) => {
                 toggle.checked = granted;
                 document.getElementById(offLabel)?.classList.toggle('active', !granted);
-                document.getElementById(onLabel)?.classList.toggle('active', granted);
                 const label = document.getElementById(onLabel);
-                if (label) label.textContent = granted ? I18n.t('settings.granted') : I18n.t('settings.allow');
+                if (!label) return;
+                label.classList.toggle('active', granted);
+                // Retarget the key rather than just the text, so switching interface
+                // language re-renders "Granted" instead of reverting it to "Allow".
+                label.dataset.i18n = granted ? 'settings.granted' : 'settings.allow';
+                label.textContent = I18n.t(label.dataset.i18n);
             };
 
             navigator.permissions?.query({ name: permissionName })
@@ -143,6 +201,10 @@ const App = {
         }
     }
 };
+
+// Called from onclick attributes in index.html.
+function openView(panelId) { App.openView(panelId); }
+function closeView() { App.closeView(); }
 
 // BOOTSTRAP
 if (document.readyState === 'loading') {

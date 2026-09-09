@@ -15,9 +15,14 @@ const I18n = {
         'card.voiceDesc':     ['কথা থেকে ইশারা', 'Speak to sign'],
         'card.dictionary':    ['অভিধান', 'Dictionary'],
         'card.dictionaryDesc':['ইশারা শিখুন', 'Learn signs'],
+        'card.both':          ['কথোপকথন', 'Conversation'],
+        'card.bothDesc':      ['দুই দিক একসাথে', 'Both at once'],
 
         'panel.cameraTitle':  ['ক্যামেরা এআই', 'Camera AI'],
         'panel.voiceTitle':   ['কণ্ঠ এআই', 'Voice AI'],
+        'panel.bothTitle':    ['কথোপকথন', 'Conversation'],
+        'both.signSide':      ['ইশারা দিচ্ছেন', 'Signing'],
+        'both.speechSide':    ['কথা বলছেন', 'Speaking'],
 
         'sts.sentence':       ['শনাক্ত করা বাক্য', 'Detected Sentence'],
         'sts.placeholder':    ['শনাক্ত করা শব্দ এখানে দেখা যাবে...', 'Detected words will appear here...'],
@@ -83,6 +88,7 @@ const I18n = {
         'tip.fallback':       ['কোনো শব্দের অবতার না থাকলে কী দেখানো হবে', 'What to show when a word has no avatar'],
         'tip.voiceOut':       ['শনাক্ত করা শব্দ শোনানো হবে কিনা', 'Speak detected words aloud'],
         'tip.uiLang':         ['অ্যাপের লেখার ভাষা', 'Language of the app interface'],
+        'tip.rotate':         ['সামনের ব্যক্তির দিকে ঘোরান', 'Flip the speaking half to face the other person'],
 
         'dict.back':          ['← অ্যাপে ফিরে যান', '← Back to App'],
         'dict.section1':      ['বিভাগ ১: ইশারার ছবি', 'Section 1: Images of Signs'],
